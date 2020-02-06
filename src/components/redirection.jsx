@@ -1,21 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
-import { SetRedirection } from "../reducers/redirection";
+import { SetRedirection, ResetRedirection } from "../features/redirectionSlice";
 
 export const RedirectionInfo = props => {
   return (
     <div>
-      <p>Question: {props.redirection.question}</p>
+      <p>Question: {props.question}</p>
       <button
         onClick={() => props.SetRedirection({ question: "is this chicken?" })}
       >
         Fetch Question
       </button>
+      <br />
+      <br />
+      <button onClick={() => props.ResetRedirection()}>Reset</button>
     </div>
   );
 };
 
 export default connect(
-  state => ({ redirection: state.redirection }),
-  { SetRedirection }
+  state => ({ question: state.redirection.question }),
+  { SetRedirection, ResetRedirection }
 )(RedirectionInfo);

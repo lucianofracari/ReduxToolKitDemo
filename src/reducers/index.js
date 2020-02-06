@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import { RedirectionReducer } from "./redirection";
+import { reducer } from "../features/redirectionSlice";
 
 export default combineReducers({
-  redirection: RedirectionReducer
+  redirection: reducer
 });
